@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.springbootdemo01.dao.AreaDao">
+    <resultMap id="AreaList" type="com.wl.springbootdemo01.entity.Area">
+        <id column="area_id" property="areaId" jdbcType="INTEGER" javaType="Integer"></id>
+        <result column="area_name" property="areaName" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="priority" property="priority" jdbcType="INTEGER" javaType="Integer"></result>
+        <!--<result column="create_time" property="create_time" jdbcType="DATE" javaType="java.util.Date"></result>-->
+        <!--<result column="last_edit_time" property="last_edit_time" jdbcType="DATE" javaType="java.util.Date"></result>-->
+    </resultMap>
+   
+    
+    <select id="getAreaById" resultType="com.wl.springbootdemo01.entity.Area" parameterType="Integer">
+        select area_id,area_name,priority,create_time,last_edit_time from tb_area where 
+        area_id = #{areaId}
+    </select>
+
+    <select id="listAreas" resultMap="AreaList">
+        select area_id,area_name,priority,create_time,last_edit_time from tb_area
+    </select>
+    
+    
+    <insert id="insertArea" parameterType="com.wl.springbootdemo01.entity.Area">
+        insert into tb_area(area_name, priority, create_time, last_edit_time) 
+        values (#{areaName},#{priority},#{createTime},#{lastEditTime})
+    </insert>
+    
+    <update id="updateArea" parameterType="com.wl.springbootdemo01.entity.Area">
+        update tb_area
+        <set>
+            <if test="areaName != null">area_name=#{areaName},</if>
+            <if test="priority != null">priority=#{priority}</if>
+            where area_id=#{areaId}
+        </set>
+    </update>
+    
+    <delete id="deleteArea" parameterType="com.wl.springbootdemo01.entity.Area">
+        delete from tb_area where area_id = #{areaId}
+    </delete>
+        
+</mapper>

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    username: root
+    password: 12345
+server:
+    port: 8080
+    servlet:
+      context-path: /demo
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wl.springbootdemo01.entity
+  config-location: classpath:mybatis-config.xml
