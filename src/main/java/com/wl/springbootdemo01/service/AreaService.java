@@ -21,7 +21,8 @@ public interface AreaService {
      * @return
      */
     Area getAreaById(Integer areaId);
-
+    
+    
     /**
      * 添加区域信息
      * @param area

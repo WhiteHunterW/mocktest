@@ -1,6 +1,8 @@
 package com.wl.springbootdemo01.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -9,16 +11,32 @@ import java.util.Date;
  * 实体类
  */
 public class Area {
-    
-    // 主键
+
+    /**
+     * 主键
+     */
     private Integer areaId;
-    // 名称
+
+    /**
+     * 名称
+     */
     private String areaName;
-    // 权重
+
+    /**
+     * 权重
+     */
     private Integer priority;
-    // 创建时间
+
+    /**
+     * 创建时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone="GMT+8")
     private Date createTime;
-    // 更新时间
+
+    /**
+     * 更新时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date lastEditTime;
 
     public Area() {

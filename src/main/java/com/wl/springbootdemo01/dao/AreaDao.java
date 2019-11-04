@@ -3,7 +3,6 @@ package com.wl.springbootdemo01.dao;
 import com.wl.springbootdemo01.entity.Area;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 持久层接口
@@ -39,4 +38,5 @@ public interface AreaDao {
      * @return
      */
      int deleteArea(int areaId);
+     
 }

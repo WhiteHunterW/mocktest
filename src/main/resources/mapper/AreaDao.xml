@@ -38,5 +38,5 @@
     <delete id="deleteArea" parameterType="com.wl.springbootdemo01.entity.Area">
         delete from tb_area where area_id = #{areaId}
     </delete>
-        
+    
 </mapper>

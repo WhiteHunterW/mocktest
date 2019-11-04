@@ -1,5 +1,7 @@
 package com.wl.springbootdemo01.vo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -8,12 +10,23 @@ import java.io.Serializable;
  * controller返回结果实体类
  */
 public class ResultVo<T> implements Serializable {
-    
-    private Integer code;  // 错误码
-    
-    private String msg;  // 提示信息
-    
-    private T data;  // 具体内容
+
+    /**
+     * 状态提示码
+     */
+    @ApiModelProperty(example = "0000")
+    private Integer code;
+
+    /**
+     * 提示信息
+     */
+    @ApiModelProperty(example = "成功")
+    private String msg;
+
+    /**
+     * 具体内容
+     */
+    private T data;  
 
     public ResultVo() {
     }

@@ -6,20 +6,12 @@ import com.wl.springbootdemo01.service.AreaService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.util.ReflectionTestUtils;
-
 import static org.mockito.Mockito.*;
 
-import javax.annotation.Resource;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +75,7 @@ public class AreaServiceImplTest {
         area.setPriority(5);
         
         when(areaDao.insertArea(area)).thenReturn(1);
-        
+        logger.info("return={}",areaDao.insertArea(area));
         boolean count = areaService.addArea(area);
         Assert.assertTrue(count);
     }
